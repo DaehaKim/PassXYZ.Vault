@@ -52,10 +52,27 @@
 	  <None Remove="Resources\Fonts\fa-brands-400.ttf" />
 	  <None Remove="Resources\Fonts\fa-regular-400.ttf" />
 	  <None Remove="Resources\Fonts\fa-solid-900.ttf" />
+	  <None Remove="Resources\Images\passxyz_logo.svg" />
+	  <None Remove="Resources\Images\tab_favorites.svg" />
+	  <None Remove="Resources\Images\tab_favorites_on.svg" />
+	  <None Remove="Resources\Images\tab_home.svg" />
+	  <None Remove="Resources\Images\tab_home_on.svg" />
+	  <None Remove="Resources\Images\tab_settings.svg" />
+	  <None Remove="Resources\Images\tab_settings_on.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="ItemsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\DefaultTheme.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

@@ -2,38 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:app="clr-namespace:PassXYZ.Vault.Resources.Styles"
-             x:Class="PassXYZ.Vault.MainPage">
+             x:Class="PassXYZ.Vault.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
+            Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
 
-            <Label
+            <Label 
                 Text="Hello, World!"
+                Grid.Row="0"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <Label
+            <Label 
                 Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
+                Grid.Row="1"
+                SemanticProperties.HeadingLevel="Level1"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+            <Label 
+                Text="Current count: 0"
+                Grid.Row="2"
+                FontSize="18"
+                FontAttributes="Bold"
+                x:Name="CounterLabel"
                 HorizontalOptions="Center" />
 
             <Button 
@@ -49,9 +46,17 @@
                         Color="{DynamicResource SecondaryColor}"
                         Size="16" />
                 </Button.ImageSource>
-            </Button> 
+            </Button>
 
-        </VerticalStackLayout>
+            <Image 
+                Grid.Row="4"
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                WidthRequest="25"
+                HeightRequest="31"
+                HorizontalOptions="Center" />
+
+        </Grid>
+
     </ScrollView>
-
 </ContentPage>
