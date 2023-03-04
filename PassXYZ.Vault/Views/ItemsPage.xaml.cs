@@ -1,4 +1,4 @@
-namespace PassXYZ.Vault;
+namespace PassXYZ.Vault.Views;
 
 public partial class ItemsPage : ContentPage
 {
@@ -6,4 +6,5 @@ public partial class ItemsPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
 }

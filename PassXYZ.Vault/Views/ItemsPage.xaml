@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PassXYZ.Vault.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:vm="clr-namespace:PassXYZ.Vault.ViewModels"
+             xmlns:model="clr-namespace:PassXYZ.Vault.Models"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="{x:Type vm:ItemsViewModel}"
+             x:Name="BrowseItemsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemsCommand}" />
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <!--https://learn.microsoft.com/ko-kr/dotnet/api/microsoft.maui.controls.listview?f1url=%3FappId%3DDev16IDEF1%26l%3DKO-KR%26k%3Dk(Microsoft.Maui.Controls.ListView)%3Bk(VS.XamlEditor)%26rd%3Dtrue&view=net-maui-7.0-->
+        <ListView x:Name="ItemsListView"
+                  ItemsSource="{Binding Items}"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="False"
+                  RowHeight="84"
+                  RefreshCommand="{Binding LoadItemsCommand}"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  CachingStrategy="RetainElement"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+            <ListView.Behaviors>
+                <mct:EventToCommandBehavior EventName="ItemSelected"
+                                            Command="{Binding ItemSelectedCommand}"
+                                            CommandParameter="{Binding SelectedItem}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" x:DataType="model:Item" RowDefinitions="32, 32" ColumnDefinitions="Auto, Auto">
+                            <Grid Grid.RowSpan="2" Padding="10" ColumnDefinitions="32">
+                                <Image Source="passxyz_logo.svg" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                            </Grid>
+                            <Label Text="{Binding Text}" Grid.Column="1"
+                                   LineBreakMode="NoWrap"
+                                   MaxLines="1"
+                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                   FontSize="Small"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
+    
+    
+        

@@ -26,12 +26,12 @@
                 HorizontalOptions="Center" />
 
             <Label 
-                Text="Current count: 0"
-                Grid.Row="2"
-                FontSize="18"
-                FontAttributes="Bold"
-                x:Name="CounterLabel"
-                HorizontalOptions="Center" />
+            Text="Current count: 0"
+            Grid.Row="2"
+            FontSize="18"
+            FontAttributes="Bold"
+            x:Name="CounterLabel"
+            HorizontalOptions="Center" />
 
             <Button 
                 Text="Click me"
@@ -48,13 +48,12 @@
                 </Button.ImageSource>
             </Button>
 
-            <Image 
-                Grid.Row="4"
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                WidthRequest="25"
-                HeightRequest="31"
-                HorizontalOptions="Center" />
+            <Image Grid.Row="4"
+            Source="dotnet_bot.png"
+            SemanticProperties.Description="Cute dot net bot waving hi to you!"
+            WidthRequest="250"
+            HeightRequest="310"
+            HorizontalOptions="Center" />
 
         </Grid>
 
